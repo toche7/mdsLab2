@@ -1,14 +1,12 @@
 def homework():
     import numpy as np
     import pandas as pd
-    import matplotlib.pyplot as plt
-
     from sklearn.datasets import load_breast_cancer
     data = load_breast_cancer()
     X = data.data
     y = data.target
     from sklearn.linear_model import LogisticRegression
-    lg = LogisticRegression(max_iter= 10000, penalty = None, solver ="newton-cg")
+    lg = LogisticRegression(max_iter= 10000, penalty = None, solver ="newton-cg", random_state=0)
     lg.fit(X, y)
     y_pred = lg.predict(X)
     R2 = lg.score(X, y)
